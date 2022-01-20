@@ -1,3 +1,15 @@
+
+{{-- Per prima cosa, creiamo un nuovo progetto Laravel 7, utilizzando questo comando:
+`composer create-project --prefer-dist laravel/laravel:^7.0 laravel-primi-passi`
+Al termine dell’installazione, entriamo nella cartella del progetto
+`cd laravel-primi-passi`
+e avviamo l’artisan serve con uno di questi due comandi:
+`php artisan serve` oppure `php -S localhost:8000 -t public`
+A questo punto, iniziamo a prendere confidenza con le rotte e le views: cancelliamo la view `welcome.blade.php` e creiamo una nostra homepage. Facciamo quindi sì che la rotta `/` visualizzi `home.blade.php`
+Inizialmente stampiamo un *Hello World*, poi passiamo dei dati alla view in modo da visualizzarli dinamicamente con Blade.
+-Creiamo più di una pagina e visualizziamo un header menu con i link di tutte le pagine, utilizzando la funzione `route()`
+- Almeno in una pagina passare dei $data dalla rotta e stamparli in pagina facendo uso di istruzioni blade --}}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +19,21 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>weeeee</h1>
-    <a href="/home">home</a>
-    <a href="/about">home</a>
-    <a href="/contacts">home</a>
+    
+    <a href="{{ route('home') }}">home</a>
+    <a href="{{ route('about') }}">about</a>
+    <a href="{{ route('contacts') }}">contatti</a>
     <h1>Home</h1>
+
+    <div>
+        {{ $name }}
+    </div>
+
+    @foreach ( $abbigliamenti as $abbigliamento )
+        
+           <h3> {{ $abbigliamento }} </h3> 
+
+    @endforeach
 
 </body>
 </html>
