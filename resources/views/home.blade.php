@@ -23,7 +23,9 @@ Inizialmente stampiamo un *Hello World*, poi passiamo dei dati alla view in modo
     <a href="{{ route('home') }}">home</a>
     <a href="{{ route('about') }}">about</a>
     <a href="{{ route('contacts') }}">contatti</a>
+    <a href="{{ route('info') }}">info</a>
     <h1>Home</h1>
+    <h2>HELLO WORLD</h2>
 
     <div>
         {{ $name }}
@@ -34,6 +36,12 @@ Inizialmente stampiamo un *Hello World*, poi passiamo dei dati alla view in modo
            <h3> {{ $abbigliamento }} </h3> 
 
     @endforeach
+
+    @if ($giusto)
+        <div> é corretto </div>
+    @else
+        <div> no </div>
+   @endif
 
 </body>
 </html>
